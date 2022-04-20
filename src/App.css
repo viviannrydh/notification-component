@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+.notification-text,
+.notification-middle,
+.notification-top,
+.notification-shake,
+.notification-scale,
+.notification-bounce{
+  width:30%;
+  height:160px;
+  right:0px;
+  bottom:0px;
+  text-align:center;
+  border: 3px solid skyblue;
+  position: fixed;
+  font-size:1.3rem;
+  padding:20px;
+  line-height:2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.notification-shake{
+  border: 3px solid red;
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.notification-middle{
+  bottom:220px;
+}
+.notification-scale{
+  bottom:220px;
+  border: 3px solid orange;
+  animation: scale 1s;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes scale {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.notification-top{
+  bottom:440px;
 }
+.notification-bounce{
+  bottom:440px;
+  border: 3px solid green;
+  animation: 
+        1.5s bounce ease;
+}
+
+ @keyframes bounce {
+        0%   { transform: translateY(0); }
+        10%  { transform: translateY(-60px); }
+        20%  { transform: translateY(0px); }
+        30%  { transform: translateY(-40px); }
+        40%  { transform: translateY(0px); }
+        50%  { transform: translateY(-30px); }
+        60%  { transform: translateY(0px); }
+        75%  { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
